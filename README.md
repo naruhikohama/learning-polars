@@ -3,10 +3,12 @@ Repo to keep some code snippets with polars or its equivalents with pandas (or s
 
 Polars is very fast. In fact, it is one of the best performing solutions available. See the results in [DuckDB's db-benchmark](https://duckdblabs.github.io/db-benchmark/).
 
+Polars cheatsheet: https://franzdiebold.github.io/polars-cheat-sheet/Polars_cheat_sheet.pdf
+
 More on polars on its [github](https://github.com/pola-rs/polars).
 
 ## Links and sources for polars code snippets
- - Complex groupby clauses in polars: [stackoverflow](https://stackoverflow.com/questions/75498169/ambiguous-results-when-apply-filter-in-polars-groupby-context)
+ - Groupby with filter in polars: [stackoverflow](https://stackoverflow.com/questions/75498169/ambiguous-results-when-apply-filter-in-polars-groupby-context)
 ```python
 import polars as pl
 
@@ -26,5 +28,18 @@ df.groupby("day").agg(
     (pl.col(xcol) - pl.col(xcol).filter(f).mean()).filter(f).sum().alias("filered_sum")
 )
 ```
+ - Groupby with lambda function
+```python
+df.groupby(by="groups").agg(
+     [
+          # Count the number of values in each group
+          pl.count("random").alias("size"),
 
+          # Sample one element in each group
+          pl.col("names").apply(
+               lambda group_df: group_df.sample(1)
+          ),
+     ]
+)
+```
 
