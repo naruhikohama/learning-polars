@@ -5,7 +5,7 @@ Polars is very fast. In fact, it is one of the best performing solutions availab
 
 Polars cheatsheet: https://franzdiebold.github.io/polars-cheat-sheet/Polars_cheat_sheet.pdf
 
-More on polars on its [github](https://github.com/pola-rs/polars).
+More on polars on its [github](https://github.com/pola-rs/polars) and on this [repo](https://github.com/ddotta/awesome-polars), also on github.
 
 ## Links and sources for polars code snippets
  - Groupby with filter in polars: [stackoverflow](https://stackoverflow.com/questions/75498169/ambiguous-results-when-apply-filter-in-polars-groupby-context)
